@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+
+class ListViewController: UITableViewController {
+    var workertest = ListWorker()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        workertest.getPopularMoviesRequest()
+    }
+}

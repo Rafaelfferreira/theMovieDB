@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+enum movie {
+    struct nowPlaying {
+        var title: String
+        var rating: Double
+        var image: String
+    }
+    
+    struct popular{
+        var title: String
+        var rating: Double
+        var image: String
+        var overview: String
+    }
+    
+    struct details {
+        var title: String
+        var rating: Double
+        var image: String
+        var overview: String
+        var genres: String
+    }
+}
