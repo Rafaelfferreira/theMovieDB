@@ -8,9 +8,26 @@
 
 import Foundation
 
+
+protocol ListWorkerDelegate: class {
+    func getPopularMovies(didFinishGettingPopularMovies movies: [Movie.Popular])
+    
+    func getPlayingNowMovies(didFinishGettingPlayingNowMovies movies: [Movie.NowPlaying])
+    
+    func getMovieDetails(didFinishGettingMovieDetails movie: Movie.Details)
+}
+
+
+// Makes the API Request, puts the information on the Model template and sends back to the Interactor
 class ListWorker {
     
-    func getPopularMoviesRequest(){
+    var popularMovieList: [Movie.Popular] = []
+    
+    typealias finishedGettingPopularMovies = (_ data: [Movie.Popular]?, _ error: Error?) -> Void
+    
+    weak var delegate: ListWorkerDelegate?
+    
+    func getPopularMoviesRequest(completion: @escaping finishedGettingPopularMovies){
         let postData = NSData(data: "{}".data(using: String.Encoding.utf8)!)//NSData(data: "{}".data(usingEncoding: String.Encoding.utf8)!)
         
         let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/movie/popular?page=1&language=en-US&api_key=77d63fcdb563d7f208a22cca549b5f3e")! as URL,
@@ -28,7 +45,10 @@ class ListWorker {
             }
             do {
                 let returnAPI = try JSONDecoder().decode(APIReturn.self, from: dataResponse)
-                print(returnAPI)
+                
+                self.preparePopularMovieInformation(apiReturn: returnAPI)
+                completion(self.popularMovieList, nil)
+                
             } catch {
                 print(error)
             }
@@ -38,8 +58,60 @@ class ListWorker {
         
     }
     
-    func preparePopularMovieInformation(httpResponse: HTTPURLResponse) {
-        let popularMovie = movie.popular(title: "a" , rating: 1.1, image: "b", overview: "c")
+    
+    func getMovieImage(movieID: Int) {
+        let postData = NSData(data: "{}".data(using: String.Encoding.utf8)!)//NSData(data: "{}".data(usingEncoding: String.Encoding.utf8)!)
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/movie/\(movieID)/images?api_key=77d63fcdb563d7f208a22cca549b5f3e&language=en-US")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        
+        request.httpMethod = "GET"
+        request.httpBody = postData as Data
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            guard let dataResponse = data, error == nil else{
+                print(error)
+                return
+            }
+            do {
+                let returnAPI = try JSONDecoder().decode(APIReturn.self, from: dataResponse)
+                
+                self.preparePopularMovieInformation(apiReturn: returnAPI)
+                
+            } catch {
+                print(error)
+            }
+        })
+        
+        dataTask.resume()
     }
+    
+    
+    
+    // Inserts information on Popular Movie model
+    func preparePopularMovieInformation(apiReturn: APIReturn) {
+        
+        for movie in apiReturn.results {
+            
+            let movieTitle = movie.title
+            let movieRating = movie.voteAverage
+            let movieImage = movie.posterPath
+            let movieOverview = movie.overview
+            
+            let popularMovie = Movie.Popular(title: movieTitle!, rating: movieRating!, image: movieImage, overview: movieOverview)
+            
+            popularMovieList.append(popularMovie)
+        }
+        
+        
+        // CHAMA O DELEGATE
+        self.delegate?.getPopularMovies(didFinishGettingPopularMovies: popularMovieList)
+        
+        
+    }
+    
+
 
 }

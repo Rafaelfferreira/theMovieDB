@@ -8,21 +8,21 @@
 
 import Foundation
 
-enum movie {
-    struct nowPlaying {
+enum Movie {
+    struct NowPlaying {
         var title: String
         var rating: Double
         var image: String
     }
     
-    struct popular{
+    struct Popular{
         var title: String
         var rating: Double
         var image: String
         var overview: String
     }
     
-    struct details {
+    struct Details {
         var title: String
         var rating: Double
         var image: String

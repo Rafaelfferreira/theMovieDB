@@ -20,6 +20,8 @@
 		04043B9723059F5300B19234 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04043B9523059F5300B19234 /* LaunchScreen.storyboard */; };
 		04043BA223059F5300B19234 /* TheMovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04043BA123059F5300B19234 /* TheMovieDBTests.swift */; };
 		0446E4CD230715F100A839F5 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446E4CC230715F100A839F5 /* JSONDecoder.swift */; };
+		0446E4CF23072BC100A839F5 /* ListPopularMoviesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446E4CE23072BC100A839F5 /* ListPopularMoviesWorker.swift */; };
+		0446E4D123072BFB00A839F5 /* ListNowPlayingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446E4D023072BFB00A839F5 /* ListNowPlayingWorker.swift */; };
 		04B27FB32305A59C002CBCB4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B27FB22305A59C002CBCB4 /* ListViewController.swift */; };
 		04B27FB52305A5B0002CBCB4 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B27FB42305A5B0002CBCB4 /* ListInteractor.swift */; };
 		04B27FB72305A5BD002CBCB4 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B27FB62305A5BD002CBCB4 /* ListPresenter.swift */; };
@@ -62,6 +64,8 @@
 		04043BA123059F5300B19234 /* TheMovieDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDBTests.swift; sourceTree = "<group>"; };
 		04043BA323059F5300B19234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0446E4CC230715F100A839F5 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		0446E4CE23072BC100A839F5 /* ListPopularMoviesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopularMoviesWorker.swift; sourceTree = "<group>"; };
+		0446E4D023072BFB00A839F5 /* ListNowPlayingWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNowPlayingWorker.swift; sourceTree = "<group>"; };
 		04B27FB22305A59C002CBCB4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		04B27FB42305A5B0002CBCB4 /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
 		04B27FB62305A5BD002CBCB4 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				04B27FB82305A5C6002CBCB4 /* ListModels.swift */,
 				04B27FBA2305A5D5002CBCB4 /* ListWorker.swift */,
 				04B27FBC2305A5E0002CBCB4 /* ListRouter.swift */,
+				0446E4CE23072BC100A839F5 /* ListPopularMoviesWorker.swift */,
+				0446E4D023072BFB00A839F5 /* ListNowPlayingWorker.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -286,11 +292,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0446E4CF23072BC100A839F5 /* ListPopularMoviesWorker.swift in Sources */,
 				04B27FC22305A649002CBCB4 /* MovieDetailInteractor.swift in Sources */,
 				04B27FBD2305A5E0002CBCB4 /* ListRouter.swift in Sources */,
 				040174EE2305BB83001528AD /* ShowAllViewController.swift in Sources */,
 				04B27FBB2305A5D5002CBCB4 /* ListWorker.swift in Sources */,
 				04B27FB72305A5BD002CBCB4 /* ListPresenter.swift in Sources */,
+				0446E4D123072BFB00A839F5 /* ListNowPlayingWorker.swift in Sources */,
 				04043B8F23059F5200B19234 /* ViewController.swift in Sources */,
 				0446E4CD230715F100A839F5 /* JSONDecoder.swift in Sources */,
 				04B27FC62305A65C002CBCB4 /* MovieDetailModels.swift in Sources */,

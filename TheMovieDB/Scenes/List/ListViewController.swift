@@ -11,10 +11,13 @@ import UIKit
 
 class ListViewController: UITableViewController {
     var workertest = ListWorker()
-    
+    var interactorTest = ListInteractor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        workertest.getPopularMoviesRequest()
+       // workertest.getPopularMoviesRequest()
+        interactorTest.load()
     }
+    
+    
 }
