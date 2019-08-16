@@ -27,32 +27,11 @@ class ListWorker {
                 return
             }
             do {
-                let jsonResponse = try JSONSerialization.jsonObject(with: dataResponse, options: [])
-                //print(jsonResponse)
-                
-                guard let jsonArray = jsonResponse as? [String: Any] else {
-                    return
-                }
-                
-                print(jsonArray["results"])
-            } catch let parsingError {
-                print("Error", parsingError)
+                let returnAPI = try JSONDecoder().decode(APIReturn.self, from: dataResponse)
+                print(returnAPI)
+            } catch {
+                print(error)
             }
-//            if (error != nil) {
-//                print(error)
-//            } else {
-//
-//                guard let jsonArray = data as? [[String: Any]] else {
-//                    return
-//                }
-//                print(jsonArray)
-//
-//                let httpResponse = response as? HTTPURLResponse
-//                print("")
-//                //print(String(data: data!, encoding: String.Encoding.utf8))
-//                print("")
-//                self.preparePopularMovieInformation(httpResponse: httpResponse!)
-            //}
         })
         
         dataTask.resume()

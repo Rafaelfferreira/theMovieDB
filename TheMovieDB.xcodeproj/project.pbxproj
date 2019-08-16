@@ -19,6 +19,7 @@
 		04043B9423059F5300B19234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04043B9323059F5300B19234 /* Assets.xcassets */; };
 		04043B9723059F5300B19234 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04043B9523059F5300B19234 /* LaunchScreen.storyboard */; };
 		04043BA223059F5300B19234 /* TheMovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04043BA123059F5300B19234 /* TheMovieDBTests.swift */; };
+		0446E4CD230715F100A839F5 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446E4CC230715F100A839F5 /* JSONDecoder.swift */; };
 		04B27FB32305A59C002CBCB4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B27FB22305A59C002CBCB4 /* ListViewController.swift */; };
 		04B27FB52305A5B0002CBCB4 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B27FB42305A5B0002CBCB4 /* ListInteractor.swift */; };
 		04B27FB72305A5BD002CBCB4 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B27FB62305A5BD002CBCB4 /* ListPresenter.swift */; };
@@ -60,6 +61,7 @@
 		04043B9D23059F5300B19234 /* TheMovieDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04043BA123059F5300B19234 /* TheMovieDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDBTests.swift; sourceTree = "<group>"; };
 		04043BA323059F5300B19234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0446E4CC230715F100A839F5 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 		04B27FB22305A59C002CBCB4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		04B27FB42305A5B0002CBCB4 /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
 		04B27FB62305A5BD002CBCB4 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				04043B9323059F5300B19234 /* Assets.xcassets */,
 				04043B9523059F5300B19234 /* LaunchScreen.storyboard */,
 				04043B9823059F5300B19234 /* Info.plist */,
+				0446E4CC230715F100A839F5 /* JSONDecoder.swift */,
 			);
 			path = TheMovieDB;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				04B27FBB2305A5D5002CBCB4 /* ListWorker.swift in Sources */,
 				04B27FB72305A5BD002CBCB4 /* ListPresenter.swift in Sources */,
 				04043B8F23059F5200B19234 /* ViewController.swift in Sources */,
+				0446E4CD230715F100A839F5 /* JSONDecoder.swift in Sources */,
 				04B27FC62305A65C002CBCB4 /* MovieDetailModels.swift in Sources */,
 				040174F62305BBA6001528AD /* ShowAllWorker.swift in Sources */,
 				040174F02305BB8E001528AD /* ShowAllInteractor.swift in Sources */,
