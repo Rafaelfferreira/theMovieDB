@@ -28,19 +28,14 @@ class ListWorker {
     weak var delegate: ListWorkerDelegate?
     
     func getPopularMoviesRequest(completion: @escaping finishedGettingPopularMovies){
-        let postData = NSData(data: "{}".data(using: String.Encoding.utf8)!)//NSData(data: "{}".data(usingEncoding: String.Encoding.utf8)!)
-        
-        let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/movie/popular?page=1&language=en-US&api_key=77d63fcdb563d7f208a22cca549b5f3e")! as URL,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
+        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/popular?page=1&language=en-US&api_key=77d63fcdb563d7f208a22cca549b5f3e")!)
         
         request.httpMethod = "GET"
-        request.httpBody = postData as Data
         
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             guard let dataResponse = data, error == nil else{
-                print(error)
+                print(error?.localizedDescription ?? "")
                 return
             }
             do {
@@ -60,17 +55,12 @@ class ListWorker {
     
     
     func getMovieImage(movieID: Int) {
-        let postData = NSData(data: "{}".data(using: String.Encoding.utf8)!)//NSData(data: "{}".data(usingEncoding: String.Encoding.utf8)!)
-        
-        let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/movie/\(movieID)/images?api_key=77d63fcdb563d7f208a22cca549b5f3e&language=en-US")! as URL,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
+        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/\(movieID)/images?api_key=77d63fcdb563d7f208a22cca549b5f3e&language=en-US")!)
         
         request.httpMethod = "GET"
-        request.httpBody = postData as Data
         
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             guard let dataResponse = data, error == nil else{
                 print(error)
                 return

@@ -26,7 +26,7 @@ class ListPresenter {
     weak var delegate: ListPresenterDelegate?
     
     func getPopularMoviesFromInteractor(movies: [Movie.Popular]) {
-        print(movies)
+        
     }
     
 }
