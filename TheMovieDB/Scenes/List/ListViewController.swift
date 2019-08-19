@@ -9,14 +9,28 @@
 import Foundation
 import UIKit
 
+//protocol ListViewControllerDelegate: class {
+//
+//    func receivePopularMovies() -> [Movie.Popular]
+//
+//    func receivePlayingNowMovies(movies: [Movie.NowPlaying])
+//
+//    func receiveMovieDetails(movie: Movie.Details)
+//
+//    func receiveViewControllerState(viewControllerState: ViewControllerState)
+//
+//}
+
 class ListViewController: UITableViewController {
-    var workertest = ListWorker()
+
     var interactorTest = ListInteractor()
+    var presenterTest = ListPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // workertest.getPopularMoviesRequest()
+
         interactorTest.load()
+        
     }
     
     

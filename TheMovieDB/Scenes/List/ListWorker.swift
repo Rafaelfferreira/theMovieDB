@@ -26,6 +26,7 @@ class ListWorker {
     typealias finishedGettingPopularMovies = (_ data: [Movie.Popular]?, _ error: Error?) -> Void
     
     weak var delegate: ListWorkerDelegate?
+    weak var interactorDelegate: ListInteractorDelegate?
     
     func getPopularMoviesRequest(completion: @escaping finishedGettingPopularMovies){
         var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/popular?page=1&language=en-US&api_key=77d63fcdb563d7f208a22cca549b5f3e")!)
@@ -40,7 +41,7 @@ class ListWorker {
             }
             do {
                 let returnAPI = try JSONDecoder().decode(APIReturn.self, from: dataResponse)
-                
+               
                 self.preparePopularMovieInformation(apiReturn: returnAPI)
                 completion(self.popularMovieList, nil)
                 
@@ -97,8 +98,8 @@ class ListWorker {
         
         
         // CHAMA O DELEGATE
-        self.delegate?.getPopularMovies(didFinishGettingPopularMovies: popularMovieList)
-        
+        //self.delegate?.getPopularMovies(didFinishGettingPopularMovies: popularMovieList)
+        self.interactorDelegate?.receivePopularMovies(popularMovies: popularMovieList)
         
     }
     

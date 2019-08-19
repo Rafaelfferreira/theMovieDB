@@ -13,9 +13,12 @@ protocol ListBusinessLogic {
     func fetchPopularMovies()
 }
 
+protocol ListInteractorDelegate: class {
+    func receivePopularMovies(popularMovies: [Movie.Popular])
+}
 // Receives information made by Worker and sends to Presenter
-class ListInteractor: ListWorkerDelegate , ListPresenterDelegate{
-    
+class ListInteractor {
+
     var popularMovies: [Movie.Popular]?
     var playingNowMovies: [Movie.NowPlaying]?
     var movieDetails: Movie.Details?
@@ -33,6 +36,23 @@ class ListInteractor: ListWorkerDelegate , ListPresenterDelegate{
         playingNowMovies = movies
     }
     
+    var listWorker: ListWorker = ListWorker()
+    var listPresenter: ListPresenter = ListPresenter()
+    
+    func load() {
+        listWorker.delegate = self
+        listWorker.getPopularMoviesRequest() { (data, error) in
+            // Receiving asynchronous information
+            //self.listPresenter.delegate = self
+            self.listPresenter.receivePopularMoviesFromInteractor(popularMovies: self.popularMovies ?? [])
+        }
+        
+        
+    }
+    
+}
+
+extension ListInteractor: ListWorkerDelegate {
     
     func getPopularMovies(didFinishGettingPopularMovies movies: [Movie.Popular]) {
         receivePopularMovies(movies: movies)
@@ -46,19 +66,11 @@ class ListInteractor: ListWorkerDelegate , ListPresenterDelegate{
         receiveMovieDetails(movie: movie)
     }
     
-    
-    var listWorker: ListWorker = ListWorker()
-    var listPresenter: ListPresenter = ListPresenter()
-    
-    func load() {
-        listWorker.delegate = self
-        listWorker.getPopularMoviesRequest() { (data, error) in
-            // Receiving asynchronous information
-            self.listPresenter.delegate = self
-            self.listPresenter.getPopularMoviesFromInteractor(movies: self.popularMovies ?? [])
-        }
-        
-        
-    }
-    
 }
+
+extension ListInteractor: ListInteractorDelegate {
+    func receivePopularMovies(popularMovies: [Movie.Popular]) {
+        print(popularMovies)
+    }
+}
+

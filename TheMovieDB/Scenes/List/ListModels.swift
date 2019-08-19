@@ -30,3 +30,9 @@ enum Movie {
         var genres: String
     }
 }
+
+enum ViewControllerState {
+    case bothRequestsSucceeded
+    case popularMoviesSucceeded
+    case noRequestSucceeded
+}
