@@ -32,6 +32,15 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOS-bJ-ZS7">
+                                    <rect key="frame" x="252" y="29" width="38" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" name="findHighlightColor" catalog="System" colorSpace="catalog"/>
+                                    <state key="normal" title="Teste"/>
+                                    <connections>
+                                        <action selector="testButton:" destination="ILu-lh-hr0" eventType="touchUpInside" id="2u3-Og-QOS"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -66,7 +75,7 @@
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
                                             <connections>
-                                                <segue destination="T4a-Qc-OsW" kind="show" identifier="seeAll" id="Q08-Qa-BQt"/>
+                                                <segue destination="T4a-Qc-OsW" kind="show" identifier="showAll" id="Q08-Qa-BQt"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -349,7 +358,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="Wg9-jh-ehk"/>
                     <connections>
-                        <segue destination="6iU-LV-ixA" kind="show" id="wy2-eS-HzV"/>
+                        <segue destination="6iU-LV-ixA" kind="show" identifier="movieDetails" id="wy2-eS-HzV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbC-Y9-y9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -481,7 +490,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="a2u-tg-MBw"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="6iU-LV-ixA" kind="show" id="Jgj-0K-W9o"/>
+                        <segue destination="6iU-LV-ixA" kind="show" identifier="movieDetails" id="Jgj-0K-W9o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlq-t6-dKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -507,7 +516,7 @@
         <!--Movie Details-->
         <scene sceneID="Grn-9f-OPS">
             <objects>
-                <viewController id="6iU-LV-ixA" sceneMemberID="viewController">
+                <viewController id="6iU-LV-ixA" customClass="MovieDetailViewController" customModule="TheMovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V0d-2l-X3S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -6,4 +6,15 @@
 //  Copyright © 2019 Rafael Ferreira. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+
+class MovieDetailViewController : UIViewController {
+    
+    var presentedMovieTitle: String?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print(presentedMovieTitle)
+    }
+}

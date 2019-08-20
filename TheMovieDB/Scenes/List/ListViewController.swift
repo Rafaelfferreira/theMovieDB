@@ -28,9 +28,12 @@ class ListViewController: UITableViewController {
     
     lazy var interactorTest: ListInteractorDelegate? = ListInteractor(presenterDelegate: self)
     var viewControllerState: ViewControllerState?
+    var listRouter: ListRouterDelegate? = ListRouter()
+    
     var popularMoviesList: [Movie.Popular] = []
     var playingNowMoviesList: [Movie.NowPlaying] = []
     var movieDetails: Movie.Details?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +43,21 @@ class ListViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: moviesCellID)
-        
-        
-        
+    @IBAction func testButton(_ sender: UIButton) {
+        listRouter?.transitionToMovieDetails(from: self)
+    }
+    //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: moviesCellID)
+//        
+//        return cell
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let movieDetailsScreen = segue.destination as? MovieDetailViewController {
+            listRouter?.receivePopularMovieInformation(destination: movieDetailsScreen, movie: self.popularMoviesList.first!)
+        }
     }
 }
 
