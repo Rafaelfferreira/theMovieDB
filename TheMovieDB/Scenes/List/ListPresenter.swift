@@ -29,9 +29,17 @@ class ListPresenter {
     var popularMoviesList: [Movie.Popular] = [] {
         didSet {
             updateViewControllerStatus()
-            
+            sendPopularMoviesToViewController()
         }
     }
+    
+    var nowPlayingMoviesList: [Movie.NowPlaying] = [] {
+        didSet {
+            updateViewControllerStatus()
+            sendNowPlayingMoviesToViewController()
+        }
+    }
+    
     var requestState: ViewControllerState?
     var listViewController: ListViewController?
    // var listViewController: ListViewControllerDelegate? = ListViewController()
@@ -46,6 +54,7 @@ class ListPresenter {
         }
         
         listViewController?.receiveViewControllerState(viewControllerState: requestState ?? ViewControllerState.noRequestSucceeded)
+        
     }
 
     func checkPopularMoviesReceivement(popularMovies: [Movie.Popular]) {
@@ -57,16 +66,24 @@ class ListPresenter {
         }
     }
     
+    func sendPopularMoviesToViewController() {
+        listViewController?.receivePopularMovies(movies: self.popularMoviesList)
+    }
+    
+    func sendNowPlayingMoviesToViewController() {
+        listViewController?.receivePlayingNowMovies(movies: self.nowPlayingMoviesList)
+    }
+    
 }
 
 extension ListPresenter: ListPresenterDelegate {
     
     func receivePopularMovies(movies: [Movie.Popular]) {
-        popularMoviesList = movies
+        self.popularMoviesList = movies
     }
     
     func receivePlayingNowMovies(movies: [Movie.NowPlaying]) {
-        print(movies)
+        self.nowPlayingMoviesList = movies
     }
     
     func receiveMovieDetails(movie: Movie.Details) {

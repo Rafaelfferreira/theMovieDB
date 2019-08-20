@@ -49,7 +49,7 @@ class ListInteractor {
     }
 
     func receivePlayingNowMovies(movies: [Movie.NowPlaying]) {
-        playingNowMovies = movies
+        self.playingNowMovies = movies
     }
     
 }
@@ -85,6 +85,13 @@ extension ListInteractor: ListInteractorDelegate {
             // Receiving asynchronous information
             self.listPresenter?.receiveViewController(viewController: self.listViewController ?? ListViewController())
             self.listPresenter?.receivePopularMovies(movies: self.popularMovies ?? [])
+
+        }
+        
+        listWorker.getPlayingNowRequest() { (data, error) in
+            
+            self.listPresenter?.receiveViewController(viewController: self.listViewController ?? ListViewController())
+            self.listPresenter?.receivePlayingNowMovies(movies: self.playingNowMovies ?? [])
         }
     }
 }

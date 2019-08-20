@@ -22,9 +22,15 @@ protocol ListViewControllerDelegate: class {
 }
 
 class ListViewController: UITableViewController {
-
+    
+    
+    let moviesCellID = "moviesCellID"
+    
     lazy var interactorTest: ListInteractorDelegate? = ListInteractor(presenterDelegate: self)
     var viewControllerState: ViewControllerState?
+    var popularMoviesList: [Movie.Popular] = []
+    var playingNowMoviesList: [Movie.NowPlaying] = []
+    var movieDetails: Movie.Details?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +39,25 @@ class ListViewController: UITableViewController {
         interactorTest?.load()
         
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: moviesCellID)
+        
+        
+        
+    }
 }
 
 extension ListViewController: ListViewControllerDelegate {
     
     func receivePopularMovies(movies: [Movie.Popular]) {
-        print(movies)
+        self.popularMoviesList = movies
     }
     
     func receivePlayingNowMovies(movies: [Movie.NowPlaying]) {
-        print(movies)
+        self.playingNowMoviesList = movies
     }
     
     func receiveMovieDetails(movie: Movie.Details) {
@@ -63,6 +78,5 @@ extension ListViewController: ListPresenterDelegate {
     func receiveViewController(viewController: ListViewController) {
         print(viewController)
     }
-    
-
 }
+

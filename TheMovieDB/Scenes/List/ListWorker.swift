@@ -22,8 +22,10 @@ protocol ListWorkerDelegate: class {
 class ListWorker {
     
     var popularMovieList: [Movie.Popular] = []
+    var playingNowMovieList: [Movie.NowPlaying] = []
     
     typealias finishedGettingPopularMovies = (_ data: [Movie.Popular]?, _ error: Error?) -> Void
+    typealias finishedGettingPlayingNowMovies = (_ data: [Movie.NowPlaying]?, _ error: Error?) -> Void
     
     weak var delegate: ListWorkerDelegate?
     weak var interactorDelegate: ListInteractorDelegate?
@@ -52,6 +54,31 @@ class ListWorker {
         
         dataTask.resume()
         
+    }
+    
+    func getPlayingNowRequest(completion: @escaping finishedGettingPlayingNowMovies) {
+        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=77d63fcdb563d7f208a22cca549b5f3e&language=en-US&page=1")!)
+        
+        request.httpMethod = "GET"
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            guard let dataResponse = data, error == nil else {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            do {
+                let returnAPI = try JSONDecoder().decode(APIReturn.self, from: dataResponse)
+                
+                self.preparePlayingNowMovieInformation(apiReturn: returnAPI)
+                completion(self.playingNowMovieList, nil)
+                
+            } catch {
+                print(error.localizedDescription ?? "")
+            }
+        })
+        
+        dataTask.resume()
     }
     
     
@@ -99,7 +126,23 @@ class ListWorker {
         
         // CHAMA O DELEGATE
         self.delegate?.getPopularMovies(didFinishGettingPopularMovies: popularMovieList)
+    }
+    
+    func preparePlayingNowMovieInformation(apiReturn: APIReturn) {
         
+        for movie in apiReturn.results {
+            
+            
+            let movieTitle = movie.title
+            let movieRating = movie.voteAverage
+            let movieImage = movie.posterPath
+            
+            let nowPlayingMovie = Movie.NowPlaying(title: movieTitle!, rating: movieRating!, image: movieImage)
+        
+            playingNowMovieList.append(nowPlayingMovie)
+        }
+        
+        self.delegate?.getPlayingNowMovies(didFinishGettingPlayingNowMovies: playingNowMovieList)
     }
     
 
