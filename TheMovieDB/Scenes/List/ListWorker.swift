@@ -82,30 +82,46 @@ class ListWorker {
     }
     
     
-    func getMovieImage(movieID: Int) {
-        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/\(movieID)/images?api_key=77d63fcdb563d7f208a22cca549b5f3e&language=en-US")!)
-        
-        request.httpMethod = "GET"
-        
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-            guard let dataResponse = data, error == nil else{
-                print(error)
-                return
+//    func getMovieImage(movieID: Int) {
+//        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/\(movieID)/images?api_key=77d63fcdb563d7f208a22cca549b5f3e&language=en-US")!)
+//
+//        request.httpMethod = "GET"
+//
+//        let session = URLSession.shared
+//        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+//            guard let dataResponse = data, error == nil else{
+//                print(error)
+//                return
+//            }
+//            do {
+//                let returnAPI = try JSONDecoder().decode(APIReturn.self, from: dataResponse)
+//
+//
+//            } catch {
+//                print(error)
+//            }
+//        })
+//
+//        dataTask.resume()
+//    }
+    func getMovieImage(posterPath: String?) -> Data? {
+        if posterPath == nil {
+            return nil
+        }
+        else {
+            if let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath!)") {
+                do {
+                    let data = try Data(contentsOf: url)
+                    return data
+                } catch {
+                    return nil
+                }
             }
-            do {
-                let returnAPI = try JSONDecoder().decode(APIReturn.self, from: dataResponse)
-                
-                self.preparePopularMovieInformation(apiReturn: returnAPI)
-                
-            } catch {
-                print(error)
+            else {
+                return nil
             }
-        })
-        
-        dataTask.resume()
+        }
     }
-    
     
     
     // Inserts information on Popular Movie model
@@ -115,7 +131,7 @@ class ListWorker {
             
             let movieTitle = movie.title
             let movieRating = movie.voteAverage
-            let movieImage = movie.posterPath
+            let movieImage = getMovieImage(posterPath: movie.posterPath)!
             let movieOverview = movie.overview
             
             let popularMovie = Movie.Popular(title: movieTitle!, rating: movieRating!, image: movieImage, overview: movieOverview)
@@ -135,7 +151,9 @@ class ListWorker {
             
             let movieTitle = movie.title
             let movieRating = movie.voteAverage
-            let movieImage = movie.posterPath
+        
+            let movieImage = getMovieImage(posterPath: movie.posterPath)!
+            //let movieImage = Data()
             
             let nowPlayingMovie = Movie.NowPlaying(title: movieTitle!, rating: movieRating!, image: movieImage)
         

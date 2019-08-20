@@ -12,20 +12,20 @@ enum Movie {
     struct NowPlaying {
         var title: String
         var rating: Double
-        var image: String
+        var image: Data
     }
     
     struct Popular{
         var title: String
         var rating: Double
-        var image: String
+        var image: Data
         var overview: String
     }
     
     struct Details {
         var title: String
         var rating: Double
-        var image: String
+        var image: Data
         var overview: String
         var genres: String
     }

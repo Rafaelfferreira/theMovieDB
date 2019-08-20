@@ -37,7 +37,7 @@ class ListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.8980392157, blue: 0.8980392157, alpha: 1)
         interactorTest?.receiveViewController(viewController: self)
         interactorTest?.load()
         
@@ -67,7 +67,7 @@ class ListViewController: UITableViewController {
         
         case 2:
             if let cell = tableView.dequeueReusableCell(withIdentifier: Cell.separator.rawValue) as? SeparatorCell{
-                cell.separatorView.backgroundColor = .blue
+                cell.separatorView.backgroundColor = #colorLiteral(red: 0.768627451, green: 0.768627451, blue: 0.768627451, alpha: 1)
                 
                 return cell
             }
@@ -81,8 +81,11 @@ class ListViewController: UITableViewController {
             if let cell = tableView.dequeueReusableCell(withIdentifier: Cell.popularMovie.rawValue) as? PopularMovieCell{
                 
                 if let firstPopularMovie = self.popularMoviesList.first {
+                    cell.movieImage.image = UIImage(data: firstPopularMovie.image)
                     cell.movieTitleLabel.text = firstPopularMovie.title
                     cell.movieRatingLabel.text = "\(firstPopularMovie.rating)"
+                    cell.movieDescription.text = firstPopularMovie.overview
+                    cell.movieImage.layer.cornerRadius = 10
                 }
                 
                 //cell.movieImage = firstPopularMovie?.image
@@ -95,9 +98,11 @@ class ListViewController: UITableViewController {
                 if self.popularMoviesList.count > 2 {
                     let secondPopularMovie = self.popularMoviesList[1]
                     
-                    //cell.movieImage = firstPopularMovie?.image
+                    cell.movieImage.image = UIImage(data: secondPopularMovie.image)
                     cell.movieTitleLabel.text = secondPopularMovie.title
                     cell.movieRatingLabel.text = "\(secondPopularMovie.rating)"
+                    cell.movieDescription.text = secondPopularMovie.overview
+                    cell.movieImage.layer.cornerRadius = 10
                 }
                 
                 return cell
@@ -134,6 +139,10 @@ extension ListViewController: ListViewControllerDelegate {
         self.playingNowMoviesList = movies
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            
+            let collectionViewCell = self.tableView.dequeueReusableCell(withIdentifier: Cell.nowPlayingCollectionView.rawValue)
+            
+            collectionViewCell?.reloadInputViews()
         }
         //tableView.reloadData()
     }
@@ -169,8 +178,8 @@ extension ListViewController : UICollectionViewDataSource {
             
             cell.movieTitle.text = playingNowMoviesList[indexPath.row].title
             cell.movieRating.text = "\(playingNowMoviesList[indexPath.row].rating)"
-            cell.movieImage.layer.cornerRadius = 15
-            
+            cell.movieImage.layer.cornerRadius = 10
+            cell.movieImage.image = UIImage(data: playingNowMoviesList[indexPath.row].image)
             
             return cell
         }
