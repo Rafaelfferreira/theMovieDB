@@ -98,8 +98,7 @@ class ListWorker {
         
         
         // CHAMA O DELEGATE
-        //self.delegate?.getPopularMovies(didFinishGettingPopularMovies: popularMovieList)
-        self.interactorDelegate?.receivePopularMovies(popularMovies: popularMovieList)
+        self.delegate?.getPopularMovies(didFinishGettingPopularMovies: popularMovieList)
         
     }
     

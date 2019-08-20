@@ -15,6 +15,12 @@ protocol ListBusinessLogic {
 
 protocol ListInteractorDelegate: class {
     func receivePopularMovies(popularMovies: [Movie.Popular])
+    
+    func receiveViewController(viewController: ListViewController)
+    
+    func load()
+    
+    
 }
 // Receives information made by Worker and sends to Presenter
 class ListInteractor {
@@ -23,6 +29,16 @@ class ListInteractor {
     var playingNowMovies: [Movie.NowPlaying]?
     var movieDetails: Movie.Details?
     
+    var listWorker: ListWorker = ListWorker()
+    var listPresenter: ListPresenterDelegate?// = ListPresenter()
+    var listViewController: ListViewController?
+    
+    init(presenterDelegate: ListPresenterDelegate?) {
+//        listPresenter?.
+        let listPresenter = ListPresenter()
+        listPresenter.delegate = presenterDelegate
+        self.listPresenter = listPresenter
+    }
     
     func receiveMovieDetails(movie: Movie.Details) {
         movieDetails = movie
@@ -36,41 +52,40 @@ class ListInteractor {
         playingNowMovies = movies
     }
     
-    var listWorker: ListWorker = ListWorker()
-    var listPresenter: ListPresenter = ListPresenter()
+}
+
+extension ListInteractor: ListWorkerDelegate {
+
+    func getPopularMovies(didFinishGettingPopularMovies movies: [Movie.Popular]) {
+        receivePopularMovies(movies: movies)
+    }
+
+    func getPlayingNowMovies(didFinishGettingPlayingNowMovies movies: [Movie.NowPlaying]) {
+        receivePlayingNowMovies(movies: movies)
+    }
+
+    func getMovieDetails(didFinishGettingMovieDetails movie: Movie.Details) {
+        receiveMovieDetails(movie: movie)
+    }
+
+}
+
+extension ListInteractor: ListInteractorDelegate {
+    func receiveViewController(viewController: ListViewController) {
+        self.listViewController = viewController
+    }
     
+    func receivePopularMovies(popularMovies: [Movie.Popular]) {
+        print(popularMovies)
+    }
+
     func load() {
         listWorker.delegate = self
         listWorker.getPopularMoviesRequest() { (data, error) in
             // Receiving asynchronous information
-            //self.listPresenter.delegate = self
-            self.listPresenter.receivePopularMoviesFromInteractor(popularMovies: self.popularMovies ?? [])
+            self.listPresenter?.receiveViewController(viewController: self.listViewController ?? ListViewController())
+            self.listPresenter?.receivePopularMovies(movies: self.popularMovies ?? [])
         }
-        
-        
-    }
-    
-}
-
-extension ListInteractor: ListWorkerDelegate {
-    
-    func getPopularMovies(didFinishGettingPopularMovies movies: [Movie.Popular]) {
-        receivePopularMovies(movies: movies)
-    }
-    
-    func getPlayingNowMovies(didFinishGettingPlayingNowMovies movies: [Movie.NowPlaying]) {
-        receivePlayingNowMovies(movies: movies)
-    }
-    
-    func getMovieDetails(didFinishGettingMovieDetails movie: Movie.Details) {
-        receiveMovieDetails(movie: movie)
-    }
-    
-}
-
-extension ListInteractor: ListInteractorDelegate {
-    func receivePopularMovies(popularMovies: [Movie.Popular]) {
-        print(popularMovies)
     }
 }
 

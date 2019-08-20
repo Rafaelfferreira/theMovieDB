@@ -19,9 +19,9 @@ protocol ListPresenterDelegate: class {
     func receiveMovieDetails(movie: Movie.Details)
     
     func receiveRequestState(viewControllerState: ViewControllerState)
+    
+    func receiveViewController(viewController: ListViewController)
 }
-
-
 
 class ListPresenter {
     
@@ -33,7 +33,8 @@ class ListPresenter {
         }
     }
     var requestState: ViewControllerState?
-    //var listViewController: ListViewController = ListViewController()
+    var listViewController: ListViewController?
+   // var listViewController: ListViewControllerDelegate? = ListViewController()
     
     func updateViewControllerStatus(){
         if (popularMoviesList.count > 0) /*&& nowPlaying.count > 0*/{
@@ -43,14 +44,10 @@ class ListPresenter {
         } else {
             requestState = ViewControllerState.noRequestSucceeded
         }
-    
+        
+        listViewController?.receiveViewControllerState(viewControllerState: requestState ?? ViewControllerState.noRequestSucceeded)
     }
-    
-    func receivePopularMoviesFromInteractor(popularMovies: [Movie.Popular]) {
-        popularMoviesList = popularMovies
-        checkPopularMoviesReceivement(popularMovies: popularMovies)
-    }
-    
+
     func checkPopularMoviesReceivement(popularMovies: [Movie.Popular]) {
         if popularMovies.count > 0 {
             // Methods called if Presenter receives the popular movies correctly
@@ -58,6 +55,30 @@ class ListPresenter {
         else {
             // Methods called if Presenter receives the popular movies incorrectly
         }
+    }
+    
+}
+
+extension ListPresenter: ListPresenterDelegate {
+    
+    func receivePopularMovies(movies: [Movie.Popular]) {
+        popularMoviesList = movies
+    }
+    
+    func receivePlayingNowMovies(movies: [Movie.NowPlaying]) {
+        print(movies)
+    }
+    
+    func receiveMovieDetails(movie: Movie.Details) {
+        print(movie)
+    }
+    
+    func receiveRequestState(viewControllerState: ViewControllerState) {
+        print(viewControllerState)
+    }
+    
+    func receiveViewController(viewController: ListViewController) {
+        self.listViewController = viewController
     }
     
 }
