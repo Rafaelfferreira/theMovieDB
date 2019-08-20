@@ -36,3 +36,13 @@ enum ViewControllerState {
     case popularMoviesSucceeded
     case noRequestSucceeded
 }
+
+
+enum Cell: String {
+    case nowPlayingText = "nowPlayingText"
+    case nowPlayingCollectionView = "nowPlayingCollectionView"
+    case nowPlayingCell = "nowPlayingCell"
+    case separator = "separator"
+    case popularMovieText = "popularMovieText"
+    case popularMovie = "popularMovie"
+}
