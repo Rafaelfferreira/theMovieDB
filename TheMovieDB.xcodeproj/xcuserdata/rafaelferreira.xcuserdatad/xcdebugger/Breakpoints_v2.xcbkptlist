@@ -22,48 +22,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TheMovieDB/Scenes/List/ListPresenter.swift"
-            timestampString = "587939543.543498"
+            filePath = "TheMovieDB/Scenes/List/ListViewController.swift"
+            timestampString = "588016813.7465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "receivePopularMoviesFromInteractor(popularMovies:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TheMovieDB/Scenes/List/ListInteractor.swift"
-            timestampString = "587939543.543825"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "getPopularMovies(didFinishGettingPopularMovies:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TheMovieDB/Scenes/List/ListInteractor.swift"
-            timestampString = "587939543.544078"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "load()"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "receivePlayingNowMovies(movies:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TheMovieDB/Scenes/List/ListViewController.swift"
-            timestampString = "587939543.5442981"
+            timestampString = "588016813.74694"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "receivePopularMovies(movies:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,120 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TheMovieDB/Scenes/List/ListViewController.swift"
-            timestampString = "587939543.544535"
+            timestampString = "588016813.747213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "ListViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieDB.ListViewController.interactorTest.getter : TheMovieDB.ListInteractor"
-                  moduleName = "TheMovieDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelferreira/Documents/Challenges/TheMovieDB/TheMovieDB/Scenes/List/ListViewController.swift"
-                  timestampString = "587939346.358073"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "114">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieDB.ListViewController.interactorTest.setter : TheMovieDB.ListInteractor"
-                  moduleName = "TheMovieDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelferreira/Documents/Challenges/TheMovieDB/TheMovieDB/Scenes/List/ListViewController.swift"
-                  timestampString = "587939346.3599499"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "128">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieDB.ListViewController.interactorTest.modify : TheMovieDB.ListInteractor"
-                  moduleName = "TheMovieDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelferreira/Documents/Challenges/TheMovieDB/TheMovieDB/Scenes/List/ListViewController.swift"
-                  timestampString = "587939346.362002"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "18">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieDB.ListViewController.interactorTest.modify : TheMovieDB.ListInteractor with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "TheMovieDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelferreira/Documents/Challenges/TheMovieDB/TheMovieDB/Scenes/List/ListViewController.swift"
-                  timestampString = "587939346.3638771"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieDB.ListViewController.init(style: __C.UITableViewStyle) -&gt; TheMovieDB.ListViewController"
-                  moduleName = "TheMovieDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelferreira/Documents/Challenges/TheMovieDB/TheMovieDB/Scenes/List/ListViewController.swift"
-                  timestampString = "587939346.366189"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "41">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieDB.ListViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; TheMovieDB.ListViewController"
-                  moduleName = "TheMovieDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelferreira/Documents/Challenges/TheMovieDB/TheMovieDB/Scenes/List/ListViewController.swift"
-                  timestampString = "587939346.369002"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "185">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieDB.ListViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TheMovieDB.ListViewController&gt;"
-                  moduleName = "TheMovieDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelferreira/Documents/Challenges/TheMovieDB/TheMovieDB/Scenes/List/ListViewController.swift"
-                  timestampString = "587939346.371453"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "98">
-               </Location>
-            </Locations>
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "testButton(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
