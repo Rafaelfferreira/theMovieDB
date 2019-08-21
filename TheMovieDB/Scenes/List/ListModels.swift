@@ -12,13 +12,13 @@ enum Movie {
     struct NowPlaying {
         var title: String
         var rating: Double
-        var image: String
+        var image: Data
     }
     
     struct Popular{
         var title: String
         var rating: Double
-        var image: String
+        var image: Data
         var overview: String
         var genres: [Int]
     }
@@ -26,7 +26,7 @@ enum Movie {
     struct Details {
         var title: String
         var rating: Double
-        var image: String
+        var image: Data
         var overview: String
         var genres: String
     }
@@ -36,4 +36,14 @@ enum ViewControllerState {
     case bothRequestsSucceeded
     case popularMoviesSucceeded
     case noRequestSucceeded
+}
+
+
+enum Cell: String {
+    case nowPlayingText = "nowPlayingText"
+    case nowPlayingCollectionView = "nowPlayingCollectionView"
+    case nowPlayingCell = "nowPlayingCell"
+    case separator = "separator"
+    case popularMovieText = "popularMovieText"
+    case popularMovie = "popularMovie"
 }
