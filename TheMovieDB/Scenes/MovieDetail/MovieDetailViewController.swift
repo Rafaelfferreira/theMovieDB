@@ -14,7 +14,7 @@ class MovieDetailViewController : UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var presentedMovieTitle: String?
     var presentedMovieRating: Double?
-    var presentedMovieImage: String?
+    var presentedMovieImage: Data?
     var presentedMovieOverview: String?
     var presentedMovieGenres: [Int]?
     
@@ -39,8 +39,13 @@ extension MovieDetailViewController: UITableViewDataSource, UITableViewDelegate 
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as? HeaderCell
             cell!.movieTitle.text = presentedMovieTitle
+            cell!.movieTitle.lineBreakMode = .byWordWrapping
+            cell!.movieTitle.numberOfLines = 0
             cell!.movieRatings.text = "\(presentedMovieRating ?? 0.0)"
             cell!.movieGenres.text = "\(presentedMovieGenres ?? [])"
+            //cell.movieImage.image = UIImage(data: playingNowMoviesList[indexPath.row].image)
+            cell!.moviePoster.image = UIImage(data: presentedMovieImage!)
+            cell?.moviePoster.layer.cornerRadius = 10
             
             return cell!
         }else if indexPath.row == 1{

@@ -29,6 +29,8 @@ class ListViewController: UITableViewController {
     lazy var interactorTest: ListInteractorDelegate? = ListInteractor(presenterDelegate: self)
     var viewControllerState: ViewControllerState?
     var listRouter: ListRouterDelegate? = ListRouter()
+    // MARK: - Variavel migue para controlar qual a celula a ser passada para as proximas telas
+    var selectedPopularMovie: Int = 1
     
     var popularMoviesList: [Movie.Popular] = []
     var playingNowMoviesList: [Movie.NowPlaying] = []
@@ -43,12 +45,11 @@ class ListViewController: UITableViewController {
         
     }
     
-    @IBAction func testButton(_ sender: UIButton) {
-        listRouter?.transitionToMovieDetails(from: self)
-    }
+//    @IBAction func testButton(_ sender: UIButton) {
+//        listRouter?.transitionToMovieDetails(from: self)
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: Cell.nowPlayingText.rawValue) as? NowPlayingTextCell{
@@ -79,7 +80,6 @@ class ListViewController: UITableViewController {
             }
         case 4:
             if let cell = tableView.dequeueReusableCell(withIdentifier: Cell.popularMovie.rawValue) as? PopularMovieCell{
-                
                 if let firstPopularMovie = self.popularMoviesList.first {
                     cell.movieImage.image = UIImage(data: firstPopularMovie.image)
                     cell.movieTitleLabel.text = firstPopularMovie.title
@@ -94,7 +94,6 @@ class ListViewController: UITableViewController {
             }
         case 5:
             if let cell = tableView.dequeueReusableCell(withIdentifier: Cell.popularMovie.rawValue) as? PopularMovieCell{
-                
                 if self.popularMoviesList.count > 2 {
                     let secondPopularMovie = self.popularMoviesList[1]
                     
@@ -120,7 +119,14 @@ class ListViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let movieDetailsScreen = segue.destination as? MovieDetailViewController {
-            listRouter?.receivePopularMovieInformation(destination: movieDetailsScreen, movie: self.popularMoviesList.first!)
+            listRouter?.receivePopularMovieInformation(destination: movieDetailsScreen, movie: self.popularMoviesList[selectedPopularMovie])
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 4 || indexPath.row == 5 {
+            selectedPopularMovie = indexPath.row - 4
+            listRouter?.transitionToMovieDetails(from: self)
         }
     }
 }
