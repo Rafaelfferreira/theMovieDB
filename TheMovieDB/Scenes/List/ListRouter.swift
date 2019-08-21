@@ -41,6 +41,10 @@ extension ListRouter : ListRouterDelegate {
     
     func receivePopularMovieInformation(destination: MovieDetailViewController, movie: Movie.Popular) {
         destination.presentedMovieTitle = movie.title
+        destination.presentedMovieRating = movie.rating
+        destination.presentedMovieImage = movie.image
+        destination.presentedMovieOverview = movie.overview
+        destination.presentedMovieGenres = movie.genres
     }
     
 }

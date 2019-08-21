@@ -20,6 +20,7 @@ enum Movie {
         var rating: Double
         var image: Data
         var overview: String
+        var genres: [Int]
     }
     
     struct Details {
