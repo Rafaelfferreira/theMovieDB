@@ -117,8 +117,9 @@ class ListWorker {
             let movieRating = movie.voteAverage
             let movieImage = movie.posterPath
             let movieOverview = movie.overview
+            let movieGenres = movie.genreIDS
             
-            let popularMovie = Movie.Popular(title: movieTitle!, rating: movieRating!, image: movieImage, overview: movieOverview)
+            let popularMovie = Movie.Popular(title: movieTitle!, rating: movieRating!, image: movieImage, overview: movieOverview, genres: movieGenres)
             
             popularMovieList.append(popularMovie)
         }

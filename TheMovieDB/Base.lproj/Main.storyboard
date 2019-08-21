@@ -521,25 +521,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pke-IO-yto">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pke-IO-yto">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="233" id="b3K-jb-lqT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="233" id="b3K-jb-lqT" customClass="HeaderCell" customModule="TheMovieDB" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="233"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b3K-jb-lqT" id="6Vm-6B-IQV">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="232.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avengers" translatesAutoresizingMaskIntoConstraints="NO" id="aSm-CU-Vgy">
-                                                    <rect key="frame" x="20" y="11" width="140" height="211"/>
+                                                    <rect key="frame" x="20" y="-58" width="140" height="280"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="140" id="SAr-qV-zei"/>
+                                                        <constraint firstAttribute="height" constant="280" id="tfa-oH-67r"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="rUo-bA-ZhV">
-                                                    <rect key="frame" x="175" y="105" width="105" height="107"/>
+                                                    <rect key="frame" x="175" y="105" width="117" height="107"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jc6-h9-Hhm">
                                                             <rect key="frame" x="0.0" y="0.0" width="95.5" height="20.5"/>
@@ -550,24 +551,24 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Genres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDd-VD-rZD">
                                                             <rect key="frame" x="0.0" y="43.5" width="105" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6LD-kn-aBa">
-                                                            <rect key="frame" x="0.0" y="87" width="40" height="20"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="6LD-kn-aBa">
+                                                            <rect key="frame" x="0.0" y="87" width="117" height="20"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hW1-sD-zkU">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="20"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syO-du-6vy">
-                                                                    <rect key="frame" x="20" y="1.5" width="20" height="17"/>
+                                                                    <rect key="frame" x="67" y="1.5" width="50" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="Ptk-6I-PY1"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="Ptk-6I-PY1"/>
                                                                 <constraint firstAttribute="height" constant="20" id="uLg-GI-fx5"/>
                                                             </constraints>
                                                         </stackView>
@@ -580,21 +581,26 @@
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="rUo-bA-ZhV" secondAttribute="trailing" constant="20" id="EBV-ZR-Oh6"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="aSm-CU-Vgy" secondAttribute="bottom" id="LLP-pS-qvM"/>
                                                 <constraint firstItem="aSm-CU-Vgy" firstAttribute="leading" secondItem="6Vm-6B-IQV" secondAttribute="leadingMargin" id="Po2-2S-DZo"/>
-                                                <constraint firstItem="rUo-bA-ZhV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Vm-6B-IQV" secondAttribute="topMargin" constant="20" id="edO-Gg-XUE"/>
-                                                <constraint firstItem="aSm-CU-Vgy" firstAttribute="top" secondItem="6Vm-6B-IQV" secondAttribute="topMargin" id="rH4-YZ-IMK"/>
+                                                <constraint firstItem="rUo-bA-ZhV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Vm-6B-IQV" secondAttribute="topMargin" constant="10" id="edO-Gg-XUE"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieGenres" destination="aDd-VD-rZD" id="CWj-sM-PfG"/>
+                                            <outlet property="moviePoster" destination="aSm-CU-Vgy" id="3Xw-dP-YHS"/>
+                                            <outlet property="movieRatings" destination="syO-du-6vy" id="C1Z-59-DBQ"/>
+                                            <outlet property="movieTitle" destination="jc6-h9-Hhm" id="6uY-vD-azU"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gLc-Kq-vXR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="overviewTitleCell" id="gLc-Kq-vXR" customClass="overviewTitleCell" customModule="TheMovieDB" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="261" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gLc-Kq-vXR" id="dch-9y-jop">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHh-fl-5GL">
                                                     <rect key="frame" x="20" y="11.5" width="374" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -605,12 +611,15 @@
                                                 <constraint firstItem="KHh-fl-5GL" firstAttribute="centerY" secondItem="dch-9y-jop" secondAttribute="centerY" id="oEM-6m-wC4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="overviewTitle" destination="KHh-fl-5GL" id="Czi-tM-WJP"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BFh-y7-nmE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="overviewCell" id="BFh-y7-nmE" customClass="overviewCell" customModule="TheMovieDB" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="305" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BFh-y7-nmE" id="jmI-3s-buy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YS3-b2-0ZU">
@@ -623,7 +632,7 @@ The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimatel
 
 Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his. </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -634,6 +643,20 @@ Simba idolises his father, King Mufasa, and takes to heart his own royal destiny
                                                 <constraint firstItem="YS3-b2-0ZU" firstAttribute="top" secondItem="jmI-3s-buy" secondAttribute="topMargin" id="yy6-0G-ZaG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieOverview" destination="YS3-b2-0ZU" id="RjL-aX-Jv0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emptyCell" id="kn5-a4-DKD" customClass="emptyCell" customModule="TheMovieDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="349" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kn5-a4-DKD" id="1xo-Ip-9TZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="emptyCell" destination="1xo-Ip-9TZ" id="Wph-rY-iFK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -648,6 +671,9 @@ Simba idolises his father, King Mufasa, and takes to heart his own royal destiny
                         <viewLayoutGuide key="safeArea" id="5oq-Ei-t1M"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie Details" id="dJj-EJ-qbA"/>
+                    <connections>
+                        <outlet property="tableView" destination="pke-IO-yto" id="XlO-F0-BIu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1p9-6G-Owu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

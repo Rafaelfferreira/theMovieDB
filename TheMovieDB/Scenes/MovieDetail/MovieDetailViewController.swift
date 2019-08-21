@@ -11,10 +11,52 @@ import UIKit
 
 class MovieDetailViewController : UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     var presentedMovieTitle: String?
+    var presentedMovieRating: Double?
+    var presentedMovieImage: String?
+    var presentedMovieOverview: String?
+    var presentedMovieGenres: [Int]?
+    
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(presentedMovieTitle)
+        //moviePoster = presentedMovieImage
+        tableView.delegate = self
+        tableView.dataSource = self
     }
+}
+
+extension MovieDetailViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as? HeaderCell
+            cell!.movieTitle.text = presentedMovieTitle
+            cell!.movieRatings.text = "\(presentedMovieRating ?? 0.0)"
+            cell!.movieGenres.text = "\(presentedMovieGenres ?? [])"
+            
+            return cell!
+        }else if indexPath.row == 1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "overviewTitleCell", for: indexPath) as? overviewTitleCell
+            
+            return cell!
+        }else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "overviewCell", for: indexPath) as? overviewCell
+            cell!.movieOverview.text = presentedMovieOverview
+            cell!.movieOverview.lineBreakMode = .byWordWrapping
+            cell!.movieOverview.numberOfLines = 0
+            
+            return cell!
+        }
+        return UITableViewCell()
+    }
+    
+    
 }

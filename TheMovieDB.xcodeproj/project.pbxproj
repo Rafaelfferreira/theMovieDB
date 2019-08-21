@@ -22,6 +22,10 @@
 		0446E4CD230715F100A839F5 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446E4CC230715F100A839F5 /* JSONDecoder.swift */; };
 		0446E4CF23072BC100A839F5 /* ListPopularMoviesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446E4CE23072BC100A839F5 /* ListPopularMoviesWorker.swift */; };
 		0446E4D123072BFB00A839F5 /* ListNowPlayingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446E4D023072BFB00A839F5 /* ListNowPlayingWorker.swift */; };
+		047DCA73230C771200AC614F /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DCA72230C771200AC614F /* HeaderCell.swift */; };
+		047DCA75230C77DA00AC614F /* OverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DCA74230C77DA00AC614F /* OverviewCell.swift */; };
+		047DCA77230C7EF300AC614F /* OverviewTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DCA76230C7EF300AC614F /* OverviewTitleCell.swift */; };
+		047DCA79230CB9D600AC614F /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DCA78230CB9D600AC614F /* EmptyCell.swift */; };
 		04B27FB32305A59C002CBCB4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B27FB22305A59C002CBCB4 /* ListViewController.swift */; };
 		04B27FB52305A5B0002CBCB4 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B27FB42305A5B0002CBCB4 /* ListInteractor.swift */; };
 		04B27FB72305A5BD002CBCB4 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B27FB62305A5BD002CBCB4 /* ListPresenter.swift */; };
@@ -72,6 +76,10 @@
 		0446E4CC230715F100A839F5 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 		0446E4CE23072BC100A839F5 /* ListPopularMoviesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopularMoviesWorker.swift; sourceTree = "<group>"; };
 		0446E4D023072BFB00A839F5 /* ListNowPlayingWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNowPlayingWorker.swift; sourceTree = "<group>"; };
+		047DCA72230C771200AC614F /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		047DCA74230C77DA00AC614F /* OverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCell.swift; sourceTree = "<group>"; };
+		047DCA76230C7EF300AC614F /* OverviewTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTitleCell.swift; sourceTree = "<group>"; };
+		047DCA78230CB9D600AC614F /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
 		04B27FB22305A59C002CBCB4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		04B27FB42305A5B0002CBCB4 /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
 		04B27FB62305A5BD002CBCB4 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
@@ -165,6 +173,17 @@
 			path = TheMovieDBTests;
 			sourceTree = "<group>";
 		};
+		047DCA71230C767300AC614F /* MovieDetailTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				047DCA72230C771200AC614F /* HeaderCell.swift */,
+				047DCA74230C77DA00AC614F /* OverviewCell.swift */,
+				047DCA76230C7EF300AC614F /* OverviewTitleCell.swift */,
+				047DCA78230CB9D600AC614F /* EmptyCell.swift */,
+			);
+			path = MovieDetailTableViewCells;
+			sourceTree = "<group>";
+		};
 		04B27FB02305A4F9002CBCB4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +213,7 @@
 		04B27FBE2305A5F1002CBCB4 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
+				047DCA71230C767300AC614F /* MovieDetailTableViewCells */,
 				04B27FBF2305A636002CBCB4 /* MovieDetailViewController.swift */,
 				04B27FC12305A649002CBCB4 /* MovieDetailInteractor.swift */,
 				04B27FC32305A654002CBCB4 /* MovieDetailPresenter.swift */,
@@ -323,17 +343,21 @@
 				0446E4CF23072BC100A839F5 /* ListPopularMoviesWorker.swift in Sources */,
 				04B27FC22305A649002CBCB4 /* MovieDetailInteractor.swift in Sources */,
 				04B27FBD2305A5E0002CBCB4 /* ListRouter.swift in Sources */,
+				047DCA75230C77DA00AC614F /* OverviewCell.swift in Sources */,
 				040174EE2305BB83001528AD /* ShowAllViewController.swift in Sources */,
 				04B27FBB2305A5D5002CBCB4 /* ListWorker.swift in Sources */,
 				04B27FB72305A5BD002CBCB4 /* ListPresenter.swift in Sources */,
 				0446E4D123072BFB00A839F5 /* ListNowPlayingWorker.swift in Sources */,
 				04043B8F23059F5200B19234 /* ViewController.swift in Sources */,
+				047DCA77230C7EF300AC614F /* OverviewTitleCell.swift in Sources */,
 				0446E4CD230715F100A839F5 /* JSONDecoder.swift in Sources */,
 				04B27FC62305A65C002CBCB4 /* MovieDetailModels.swift in Sources */,
 				040174F62305BBA6001528AD /* ShowAllWorker.swift in Sources */,
 				040174F02305BB8E001528AD /* ShowAllInteractor.swift in Sources */,
 				04043B8D23059F5200B19234 /* AppDelegate.swift in Sources */,
+				047DCA79230CB9D600AC614F /* EmptyCell.swift in Sources */,
 				04B27FB92305A5C6002CBCB4 /* ListModels.swift in Sources */,
+				047DCA73230C771200AC614F /* HeaderCell.swift in Sources */,
 				04B27FC42305A654002CBCB4 /* MovieDetailPresenter.swift in Sources */,
 				80B78514230C404D005842A1 /* NowPlayingTextCell.swift in Sources */,
 				04B27FB52305A5B0002CBCB4 /* ListInteractor.swift in Sources */,
